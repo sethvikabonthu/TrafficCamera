@@ -35,9 +35,12 @@ app.get("/cameras", async (req, res) => {
         if (!imageUrl) return null;
 
         return {
+          id: cam.camera_url?.url || cam.camera_location,
           location: cam.camera_location,
           quadrant: cam.quadrant || "Unknown",
-          imageUrl: imageUrl
+          imageUrl: imageUrl,
+          latitude: cam.point?.coordinates?.[1] ?? null,
+          longitude: cam.point?.coordinates?.[0] ?? null
         };
       })
       .filter(Boolean);
