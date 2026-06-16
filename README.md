@@ -1,4 +1,4 @@
-#  Calgary Traffic Watch
+#  Traffic Camera
 
 An interactive, premium dark-themed web application that provides real-time access to live traffic camera feeds throughout the City of Calgary. Built with **React 19**, **Node.js/Express**, and **Leaflet**, the app aggregates and parses live geospatial data directly from the official City of Calgary Open Data API.
 
