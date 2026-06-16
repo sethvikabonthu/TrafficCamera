@@ -1,38 +1,61 @@
-# Calgary Traffic Camera Viewer
+#  Calgary Traffic Watch
 
-This project displays live traffic cameras from the City of Calgary Open Data API.
+An interactive, premium dark-themed web application that provides real-time access to live traffic camera feeds throughout the City of Calgary. Built with **React 19**, **Node.js/Express**, and **Leaflet**, the app aggregates and parses live geospatial data directly from the official City of Calgary Open Data API.
 
-## Tech Stack
-- React (Frontend)
-- Node.js + Express (Backend)
-- Jest & Supertest (Unit Testing)
+---
 
-## How to Run
+## ✨ Features
+**🗺️ Interactive Map View**: A dark-themed CartoDB map displaying all active traffic cameras across Calgary. Clicking a camera pin reveals its live image feed and information.
+**🔍 Real-Time Search**: Instantly filter cameras by street names, intersections, or highway names.
+**🧭 Quadrant Filtering**: Quickly pivot cameras based on Calgary's city quadrants: **NW**, **NE**, **SW**, and **SE**.
+**⭐ Persistent Favorites**: Heart your frequently viewed cameras to save them to a dedicated "Favorites" tab. Favorites are persisted across sessions via local storage.
+**🔄 Auto-Refresh Countdown**: Feeds automatically update every 30 seconds with an animated countdown indicator to ensure you see the most current traffic conditions.
+**🔍 Full-Screen Lightbox**: Click any camera card to expand the live feed into an immersive full-screen modal view.
+**📊 Dashboard Metrics**: High-level dashboard displays camera counts, favorite tallies, and quadrant distributions.
+**⚡ Animated Skeleton Loaders**: Fluid image loading animations provide a modern, seamless user experience.
 
-### Backend
-cd calgary-traffic
-npm install
-node server.js
+---
+
+## 🛠️ Tech Stack
 
 ### Frontend
-npm install
-npm run dev
+*   **React 19** (Functional Components, Hooks)
+*   **Vite** (Next-generation frontend tooling)
+*   **Leaflet & CartoDB Maps** (Interactive geospatial rendering using custom DivIcons)
+*   **Vanilla CSS3** (Custom properties design system, glassmorphism, responsive grids)
 
-Open:
-http://localhost:5173
-# React + Vite
+### Backend
+*   **Node.js & Express 5** (RESTful API proxying)
+*   **Axios** (Server-to-API HTTP calls)
+*   **Jest & Supertest** (API validation and test coverage)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+## 🚀 Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org/) (version 18+ recommended) installed on your machine.
 
-## React Compiler
+### Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/calgary-traffic-watch.git
+    cd calgary-traffic-watch
+    ```
 
-## Expanding the ESLint configuration
+2.  **Install project dependencies:**
+    ```bash
+    npm install
+    ```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 💻 Running the Application
+
+To run the application, you need to start both the backend proxy server and the frontend Vite development server.
+
+### 1. Start the Backend API Server
+The backend handles API requests, filters out offline/invalid feeds, and reformats GeoJSON properties.
+```bash
+node server.js
